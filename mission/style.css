@@ -1,0 +1,87 @@
+body {
+    max-width: 600px;
+    margin:auto;
+    font-family: 'Times New Roman';
+    border: 1px solid black;
+    padding: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 35px;
+    font-weight: 550;
+}
+
+h4 {
+    display: block;
+    color: #006EB6;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 13px;
+}
+
+#lineBreak {
+    display:block; 
+    height: 1px; 
+    border:0; 
+    border-top: 1px solid black; 
+    margin: 1em 0; 
+    padding: 0; 
+}
+
+#statement {
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    line-height: 1.5;
+    margin: center;
+}
+
+#intro {
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    line-height: 1.5;
+    margin: center;
+    font-style: italic;
+}
+
+
+.list {
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    line-height: 1.5;
+    margin: center;
+    padding-left: 50px;
+}
+
+.byuilogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
+.inverted {
+    background-color: black;
+    color: white; 
+    border: 1px solid white;  
+}
+
+.inverted h1 {
+    color:white;
+}
+
+.inverted .inverted-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
