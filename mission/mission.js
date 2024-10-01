@@ -6,13 +6,15 @@ document.getElementById('toggleButton').addEventListener('click', function() {
             image.remove();
         } else {
             document.body.insertAdjacentHTML('beforeend', imageMarkup);
+            newImage.remove();
         }
+        const newImage = document.createElement("img");
+        newImage.setAttribute("src", "byui-logo_white.png");
+        newImage.setAttribute("alt", "invertedByui");
+        newImage.classList.add("inverted-logo"); 
+        document.body.appendChild(newImage);
 });
 
 
-const newImage = document.createElement("img");
-newImage.setAttribute("src", "byui-logo_white.png");
-newImage.setAttribute("alt", "invertedByui");
-newImage.classList.add("inverted-logo"); 
-document.body.appendChild(newImage);
+
 

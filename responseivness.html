@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Responsive Website with Pong</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .header {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .content {
+            font-size: 1.25rem;
+            width: 80%;
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                font-size: 2rem;
+            }
+            .content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Hover, Scroll, and Resize with Pong!</div>
+        <div class="content">
+            <p>Use your mouse to control the right paddle and 'W' & 'S' keys for the left paddle in the Pong game!</p>
+        </div>
+    </div>
+    
+    <canvas id="pongCanvas"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.querySelector('.header');
+            const content = document.querySelector('.content');
+            const canvas = document.getElementById('pongCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size to window dimensions
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let paddleHeight = 100, paddleWidth = 10;
+
+            // Left paddle (controlled by W and S)
+            let leftPaddleY = (canvas.height - paddleHeight) / 2;
+            const leftPaddleX = 0;
+
+            // Right paddle (controlled by mouse)
+            let rightPaddleY = (canvas.height - paddleHeight) / 2;
+            const rightPaddleX = canvas.width - paddleWidth;
+
+            // Ball
+            let ballRadius = 10;
+            let x = canvas.width / 2;
+            let y = canvas.height / 2;
+            let dx = 2;
+            let dy = -2;
+
+            // Paddle Control
+            let wPressed = false;
+            let sPressed = false;
+
+            // Ball movement
+            const paddleSpeed = 7;
+
+            // Event Listeners for left paddle (keyboard)
+            document.addEventListener("keydown", keyDownHandler);
+            document.addEventListener("keyup", keyUpHandler);
+            document.addEventListener("mousemove", mouseMoveHandler); // Right paddle (mouse)
+
+            function keyDownHandler(e) {
+                if (e.key == 'W' || e.key == 'w') {
+                    wPressed = true;
+                } else if (e.key == 'S' || e.key == 's') {
+                    sPressed = true;
+                }
+            }
+
+            function keyUpHandler(e) {
+                if (e.key == 'W' || e.key == 'w') {
+                    wPressed = false;
+                } else if (e.key == 'S' || e.key == 's') {
+                    sPressed = false;
+                }
+            }
+
+            function mouseMoveHandler(e) {
+                let relativeY = e.clientY - canvas.offsetTop;
+                if (relativeY > 0 && relativeY < canvas.height - paddleHeight) {
+                    rightPaddleY = relativeY - paddleHeight / 2;
+                }
+            }
+
+            // Draw Ball
+            function drawBall() {
+                ctx.beginPath();
+                ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            // Draw Paddles
+            function drawPaddles() {
+                // Left Paddle
+                ctx.beginPath();
+                ctx.rect(leftPaddleX, leftPaddleY, paddleWidth, paddleHeight);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fill();
+                ctx.closePath();
+
+                // Right Paddle
+                ctx.beginPath();
+                ctx.rect(rightPaddleX, rightPaddleY, paddleWidth, paddleHeight);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            // Move Left Paddle
+            function moveLeftPaddle() {
+                if (wPressed && leftPaddleY > 0) {
+                    leftPaddleY -= paddleSpeed;
+                }
+                if (sPressed && leftPaddleY < canvas.height - paddleHeight) {
+                    leftPaddleY += paddleSpeed;
+                }
+            }
+
+            // Draw Pong Game
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                drawBall();
+                drawPaddles();
+                moveLeftPaddle();
+
+                // Ball movement
+                x += dx;
+                y += dy;
+
+                // Bounce off the top and bottom walls
+                if (y + dy < ballRadius || y + dy > canvas.height - ballRadius) {
+                    dy = -dy;
+                }
+
+                // Bounce off the right paddle
+                if (x + dx > canvas.width - ballRadius - paddleWidth) {
+                    if (y > rightPaddleY && y < rightPaddleY + paddleHeight) {
+                        dx = -dx;
+                    } else if (x + dx > canvas.width - ballRadius) {
+                        // If the ball hits the right wall (misses the paddle), reset the game
+                        x = canvas.width / 2;
+                        y = canvas.height / 2;
+                        dx = -dx;
+                    }
+                }
+
+                // Bounce off the left paddle
+                if (x + dx < ballRadius + paddleWidth) {
+                    if (y > leftPaddleY && y < leftPaddleY + paddleHeight) {
+                        dx = -dx;
+                    } else if (x + dx < ballRadius) {
+                        // If the ball hits the left wall (misses the paddle), reset the game
+                        x = canvas.width / 2;
+                        y = canvas.height / 2;
+                        dx = -dx;
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+
+            // Adjust canvas size on window resize
+            window.addEventListener('resize', function () {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+
+            // Hover effect to animate the header and content
+            header.addEventListener('mouseenter', () => {
+                header.style.color = 'rgba(255, 255, 255, 1)';
+                content.style.transform = 'scale(1.05)';
+            });
+
+            header.addEventListener('mouseleave', () => {
+                header.style.color = 'rgba(255, 255, 255, 0.8)';
+                content.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
