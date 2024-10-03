@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
+ :root {
+ --primary-color: #52489c;
+ --secondary-color: #59c3c3;
+ --accent-color: #f45b69;
+ --text-dark: #333;
+ --text-light: #ebebeb;
+ --primary-font: Arial, Helvetica,sans-serif;
+ --secondary-font: Mooli, san-serif;
+ }
+body {
+    font-family: var(--primary-font);
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    background-color: #EBEBEB;
+    height: 100vh;
+}
+
+header {
+    background-color: #51489C;
+    text-align: center;
+    color: white;
+    padding: 1px;
+    padding-bottom: 15px;
+
+}
+
+h1 {
+    font-family: mooli;
+    text-align: center;
+}
+
+a {
+    color: white;
+    margin: 0 15px;
+}
+
+img {
+	width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 3px 3px 2px gray;
+    
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 15px;
+}
+
+
+main {
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 70px;
+    padding-bottom: 70px;
+    font-size: larger;
+    max-width: fit-content;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.gallery figure {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: #51489C;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+}
+
+.copyright {
+    margin-left: 20%;
+}
+
+@media screen and (min-width: 1200px){
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .menu {
+        display: show;
+    }
+
+    a {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    a {
+        display: block;
+    }
+}
