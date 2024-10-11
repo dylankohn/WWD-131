@@ -101,12 +101,12 @@ footer {
         gap: 30px;
     }
 
-    .menu {
-        display: show;
-    }
-
-    a {
+    .menuHide {
         display: none;
+    }
+    
+    .menuShow {
+        display: show;
     }
 }
 
@@ -117,7 +117,12 @@ footer {
         gap: 30px;
     }
 
-    a {
-        display: block;
+    .menuHide {
+        display: none;
     }
+    
+    .menuShow {
+        display: show;
+    }
+
 }
