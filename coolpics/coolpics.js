@@ -11,3 +11,29 @@ const menu = document.getElementById("menu");
                 menu.classList.add("menuHide");
             }
         });
+
+function handleResize() {
+    const menu = document.querySelector(".menu");
+    if (window.innerWidth > 1000){
+        menu.classList.remove("menuHide");
+    } else {
+        menu.classList.add("menuShow");
+    }
+}
+
+const viewer = document.querySelector('.viewer');
+const closeButton = document.querySelector('.close-viewer');
+const images = document.querySelectorAll('img[src="norris-sm.jpeg"]');
+
+closeButton.addEventListener('click', closeViewer)
+images.forEach(image => {
+    image.addEventListener('click', openViewer)
+});
+function openViewer(){
+    viewer.style.display = 'grid'; 
+}
+function closeViewer() {
+    viewer.style.display = 'none'; 
+}
+handleResize();
+window.addEventListener("resize", handleResize);

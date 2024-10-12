@@ -36,13 +36,13 @@ a {
     margin: 0 15px;
 }
 
-img {
+.gallery img {
 	width: 125px;
     height: 125px;
     object-fit: cover;
     border: 5px solid white;
     box-shadow: 3px 3px 2px gray;
-    
+    cursor: pointer;
 }
 
 button {
@@ -125,4 +125,28 @@ footer {
         display: show;
     }
 
+
+}
+
+.viewer {
+    position: fixed;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10; 
+}
+
+.viewer img {
+    width: 70vw;
+    height: 70vh;
+    padding-top: 10%
+}
+
+.close-viewer {
+    color: white;
+    position: absolute; 
+    top: 10px;
+    right: 10px;
 }
