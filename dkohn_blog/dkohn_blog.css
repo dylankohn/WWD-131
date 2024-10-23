@@ -18,11 +18,11 @@ main {
 
 .grid-container {
     display: flex;
-    flex-direction: row; /* Align .details and .book side by side */
-    gap: 20px; /* Add space between .details and .book */
+    flex-direction: row;
+    gap: 20px;
     padding: 20px;
-    width: 100%; /* Ensure the container takes full width */
-    align-items: flex-start; /* Align items to the top */
+    width: 100%;
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
@@ -42,17 +42,17 @@ nav a {
 }
 
 .details {
-    flex: 1 1 auto; /* Allow it to grow and shrink appropriately */
-    max-width: 10%; /* Control width of the details section */
+    flex: 1 1 auto;
+    max-width: 10%; 
     padding: 1%;
     text-align: right;
 }
 
 .book {
-    flex: 2 1 auto; /* Allow it to grow and take up more space than .details */
+    flex: 2 1 auto; 
     padding-left: 5%;
     border-left: 2px solid #EFC69B;
-    max-width: 45%; /* Control width of the book section */
+    max-width: 45%;
 }
 
 .book h2 {

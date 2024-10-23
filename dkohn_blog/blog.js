@@ -37,12 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const articlesContainer = document.getElementById('grid-creator');
     
-    // Loop through articles and create a div for each article
     articles.forEach(article => {
         const articleDiv = document.createElement('div');
-        articleDiv.className = 'article'; // Add class for styling if needed
+        articleDiv.className = 'article'; 
 
-        // Populate the div with article content
         articleDiv.innerHTML = `
 			<div class="grid-container">
 				<div class="details">
@@ -59,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			</div>
         `;
 
-        // Append the new div to the articles container
         articlesContainer.appendChild(articleDiv);
     });
 });
