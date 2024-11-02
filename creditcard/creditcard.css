@@ -1,0 +1,104 @@
+.card-front {
+    position: absolute;
+    top: 17%;
+    left: 16%;
+    width: 20%;
+    height: 200px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-number {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 100%;
+}
+
+.card-image {
+    position: absolute;
+    top: 7%;
+    left: 30%;
+    width: 100%;
+}
+
+#total {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 100%;
+}
+
+.card-holder {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    width: 100%;
+}
+
+#card-holder {
+    height: 20px;
+}
+
+.card-expiration-date {
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    width: 100%;
+}
+
+#month {
+    width: 30px;
+    height: 20px;
+}
+
+#year {
+    width: 30px;
+    height: 20px;
+}
+
+#card-number {
+    width: 75%;
+    height: 20px;
+}
+
+.strip {
+    height: 20%;
+    width: 100%;
+    background-color: rgb(91, 91, 91);
+}
+
+.card-back {
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    width: 20%;
+    height: 175px;
+    background-color: #f1f1f1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-ccv {
+    position: absolute;
+    top: 70%;
+    left: 75%;
+}
+
+#card-ccv {
+    width: 50px;
+    height: 20px;
+}
+
+.submit {
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #888888;
+    width: 100px;
+    height: 40px;
+}
