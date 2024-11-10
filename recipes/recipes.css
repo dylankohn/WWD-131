@@ -1,0 +1,97 @@
+h1 {
+    font-family: "Roboto", sans-serif;
+}
+
+img {
+    height: 10vh;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    display: flex;
+    align-items: baseline;
+    width: 90vw;
+    height: 3vh;
+    margin-top: 5vh;
+}
+
+hr {
+    width: 95vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.recipe-img {
+    height: 40vh;
+    margin: 1.5%;
+}
+
+.recipe {
+    width: 90vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+    width: 90vw;
+}
+
+.footer-content .social {
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;  /* Optional: to remove default margin/padding */
+}
+@import url("https://fonts.googleapis.com/css2?family=family=Amatic+SC&display=swap");
+:root {
+--primary-color: #1B98E0;
+--secondary-color: #59c3c3;
+--text-dark: #333;
+--text-light: #ebebeb;
+--primary-font: Arial, Helvetica,sans-serif;
+--secondary-font: "Amatic SC";
+}
+
+@media screen and (max-width: 700px){
+    .recipe {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-content .social {
+        align-items: flex-start;
+    }
+}
