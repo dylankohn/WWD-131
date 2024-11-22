@@ -71,7 +71,7 @@ footer {
 
 .rating {
     font-size: 1.5rem;
-    color: #FFD700; /* Gold color for stars */
+    color: #FFD700;
 }
 
 .rating span {
@@ -79,11 +79,11 @@ footer {
 }
 
 .rating span.empty {
-    color: #ccc; /* Lighter color for empty stars */
+    color: #ccc;
 }
 
 footer p {
-    margin: 0;  /* Optional: to remove default margin/padding */
+    margin: 0;
 }
 @import url("https://fonts.googleapis.com/css2?family=family=Amatic+SC&display=swap");
 :root {
