@@ -43,7 +43,7 @@ main {
     margin: 1.5%;
 }
 
-.recipe {
+.recipe-card {
     width: 90vw;
     border: 1px solid black;
     border-radius: 10px;
@@ -67,6 +67,19 @@ footer {
 .footer-content .social {
     display: flex;
     align-items: center;
+}
+
+.rating {
+    font-size: 1.5rem;
+    color: #FFD700; /* Gold color for stars */
+}
+
+.rating span {
+    color: #FFD700;
+}
+
+.rating span.empty {
+    color: #ccc; /* Lighter color for empty stars */
 }
 
 footer p {
