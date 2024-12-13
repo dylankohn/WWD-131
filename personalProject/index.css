@@ -96,8 +96,6 @@ h1 {
     color: #888;
 }
 
-/* Media Queries for Responsive Design */
-
 /* Small screens (max-width: 768px) */
 @media (max-width: 768px) {
     .container {

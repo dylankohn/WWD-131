@@ -9,15 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
             linkedin: document.getElementById("linkedin").value,
             summary: document.getElementById("summary").value,
             skills: document.getElementById("skills").value,
-            schools: document.getElementById("schools").value, // Collect schools
-            degrees: document.getElementById("degrees").value, // Collect degrees
-            workOrganizations: document.getElementById("workOrganizations").value, // Collect work organizations
-            workYears: document.getElementById("workYears").value, // Collect work years
-            volunteerOrganizations: document.getElementById("volunteerOrganizations").value, // Collect volunteer organizations
-            volunteerYears: document.getElementById("volunteerYears").value  // Collect volunteer years
+            schools: document.getElementById("schools").value,
+            degrees: document.getElementById("degrees").value,
+            workOrganizations: document.getElementById("workOrganizations").value,
+            workYears: document.getElementById("workYears").value,
+            volunteerOrganizations: document.getElementById("volunteerOrganizations").value,
+            volunteerYears: document.getElementById("volunteerYears").value
         };
 
-        // Helper function to safely split and map values
         const safeSplit = (value) => {
             if (value.trim() === "") return [];
             return value.split("\n\n").map(entry => {
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        // Safely process the education, work experience, and volunteer work sections
         formValues.schools = safeSplit(formValues.schools);
         formValues.degrees = safeSplit(formValues.degrees);
         formValues.workOrganizations = safeSplit(formValues.workOrganizations);
@@ -34,28 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
         formValues.volunteerOrganizations = safeSplit(formValues.volunteerOrganizations);
         formValues.volunteerYears = safeSplit(formValues.volunteerYears);
 
-        // Pair schools with degrees
         const education = formValues.schools.map((school, index) => {
-            return [school, formValues.degrees[index] || '']; // Ensure there's a degree to match
+            return [school, formValues.degrees[index] || ''];
         });
 
-        // Pair work organizations with years
         const workExperience = formValues.workOrganizations.map((org, index) => {
-            return [org, formValues.workYears[index] || '']; // Ensure there's a year to match
+            return [org, formValues.workYears[index] || ''];
         });
 
-        // Pair volunteer organizations with years
         const volunteerWork = formValues.volunteerOrganizations.map((org, index) => {
-            return [org, formValues.volunteerYears[index] || '']; // Ensure there's a year to match
+            return [org, formValues.volunteerYears[index] || ''];
         });
 
         formValues.education = education;
         formValues.experience = workExperience;
         formValues.volunteer = volunteerWork;
 
-        console.log(formValues); // To debug and check if the values are properly collected
+        console.log(formValues);
 
-        // Store form data in localStorage
         localStorage.setItem("resumeData", JSON.stringify(formValues));
 
         // Redirect to the resume page
