@@ -95,3 +95,59 @@ h1 {
 .form-section textarea::placeholder {
     color: #888;
 }
+
+/* Media Queries for Responsive Design */
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #generateResume {
+        font-size: 1.1em;
+        padding: 12px;
+    }
+
+    .form-section label {
+        font-size: 1em;
+    }
+
+    .form-section input,
+    .form-section textarea {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #generateResume {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .form-section label {
+        font-size: 0.9em;
+    }
+
+    .form-section input,
+    .form-section textarea {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+}
